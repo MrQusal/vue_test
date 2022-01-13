@@ -1,8 +1,10 @@
 <template>
-  <div class="back font-bigger">
-    <h1>{{ msg }}</h1>
+  <div class="student">
+    <!-- 使用插件中的过滤器 -->
+    <h1>{{ msg | mySlice }}</h1>
     <h2>学生的姓名: {{ name }}</h2>
     <h2>学生的年纪: {{ age }}</h2>
+    <button @click="hello">点我测试 hello 方法</button>
   </div>
 </template>
 
@@ -19,12 +21,8 @@ export default {
 };
 </script>
 
-<style scoped>
-/* 
-  Vue 最终会将样式 汇总到一起，所以样式名一样会产生冲突。引入 vue时，后者会覆盖前者
-  需要在各自的vue 组件的 style 标签中添加属性 scoped
-*/
-.back {
+<style>
+.student {
   background-color: silver;
 }
 </style>

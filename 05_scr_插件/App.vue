@@ -19,8 +19,4 @@ export default {
 </script>
 
 <style>
-/* 一般 App 组件中的样式不用 scoped，类似于全局样式 */
-  .font-bigger{
-    font-size: 50px;
-  }
 </style>

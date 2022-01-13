@@ -1,6 +1,7 @@
 <template>
   <div class="school">
     <h1>{{ msg }}</h1>
+    <!-- 此处的 showName mixin.js 中的函数。-->
     <h2 @click="showName">学校的姓名: {{ name }}</h2>
     <h2>学校的地址: {{ adress }}</h2>
   </div>

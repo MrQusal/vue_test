@@ -1,6 +1,6 @@
-// 1. 自定义插件（用于增强 Vue 的功能）。默认暴露
+// 1. 自定义插件（用于增强 Vue 的功能）。此处为默认暴露
 export default {
-  // 插件必须要有一个 install 方法，可以接收一个参数，就是 Vue 的构造函数
+  // 插件必须要有一个 install 方法，可以接收多个参数，第一个就是 Vue 的构造函数
   install(Vue) {
     console.log(Vue);
     console.log("install success!!");

@@ -1,8 +1,10 @@
 <template>
-  <div class="back">
+  <div class="school">
     <h1>{{ msg }}</h1>
     <h2>学校的姓名: {{ name }}</h2>
     <h2>学校的地址: {{ adress }}</h2>
+    <!-- 使用插件中定义的治理 -->
+    <input type="text" v-fbind="name">
   </div>
 </template>
 
@@ -19,12 +21,8 @@ export default {
 };
 </script>
 
-<style scoped>
-/* 
-  Vue 最终会将样式 汇总到一起，所以样式名一样会产生冲突。引入 vue时，后者会覆盖前者
-  需要在各自的vue 组件的 style 标签中添加属性 scoped
-*/
-.back {
+<style>
+.school {
   background-color: orange;
 }
 </style>

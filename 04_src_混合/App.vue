@@ -15,6 +15,10 @@ export default {
     Student,
     School,
   },
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 

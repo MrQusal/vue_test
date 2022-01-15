@@ -12,8 +12,4 @@ new Vue({
   el: '#root',
   // 调用 render 将 app组件放入容器
   render: h => h(App),
-  // 安装全局总线
-  beforeCreate() {
-    Vue.prototype.$bus = this;
-  }
 })

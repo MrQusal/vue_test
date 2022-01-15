@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01-localStorage</title>
+</head>
+
+<body>
+  <h2>localStorage</h2>
+  <button onclick="saveData()">点我保存一个数据</button>
+  <br><br>
+  <button onclick="readData()">点我读取数据</button>
+  <br><br>
+  <button onclick="deleteItem()">点我删除 msg </button>
+  <br><br>
+  <button onclick="clearAll()">点我清空数据</button>
+
+  <script>
+    function saveData() {
+      // localStorage 是 window 对象上的一个属性
+      console.log("saveData");
+      // value 值只能是字符串
+      localStorage.setItem("msg", "Vue教程");
+      const p = { name: 'Tom', age: 18 }
+      // 存储对象需要借助 JSON.stringify
+      localStorage.setItem("person", JSON.stringify(p))
+    }
+
+    function readData() {
+      console.log("readData");
+      console.log(localStorage.getItem("msg"));
+      console.log(localStorage.getItem("person"));
+    }
+
+    function deleteItem() {
+      console.log("deleteItem");
+      localStorage.removeItem("msg")
+    }
+
+    function clearAll() {
+      console.log("clearAll");
+      localStorage.clear()
+    }
+
+    /*
+      localStorage 的四个 API
+        setItem(key,value)  添加数据
+        getItem(key)        获取数据 ---> 当key存在时，返回 null
+        removeItem(key)     删除数据
+        clear()             清空数据
+      
+      特点：
+        浏览器关闭后，数据仍然保存在 localStorage 中，不会丢失
+        只有当用户删除其中的数据、或者清除缓存再会消失
+    */
+  </script>
+</body>
+
+</html>

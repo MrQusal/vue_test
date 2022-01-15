@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02-sessionStorage</title>
+</head>
+
+<body>
+  <h2>sessionStorage</h2>
+  <button onclick="saveData()">点我保存一个数据</button>
+  <br><br>
+  <button onclick="readData()">点我读取数据</button>
+  <br><br>
+  <button onclick="deleteItem()">点我删除 msg </button>
+  <br><br>
+  <button onclick="clearAll()">点我清空数据</button>
+
+  <script>
+    function saveData() {
+      // sessionStorage 是 window 对象上的一个属性
+      console.log("saveData");
+      // value 值只能是字符串
+      sessionStorage.setItem("msg", "Vue教程");
+      const p = { name: 'Tom', age: 18 }
+      // 存储对象需要借助 JSON.stringify
+      sessionStorage.setItem("person", JSON.stringify(p))
+    }
+
+    function readData() {
+      console.log("readData");
+      console.log(sessionStorage.getItem("msg"));
+      console.log(sessionStorage.getItem("person"));
+    }
+
+    function deleteItem() {
+      console.log("deleteItem");
+      sessionStorage.removeItem("msg")
+    }
+
+    function clearAll() {
+      console.log("clearAll");
+      sessionStorage.clear()
+    }
+
+    /*
+      sessionStorage 的四个 API，和 localStorage的 API 相同
+        setItem(key,value)  添加数据
+        getItem(key)        获取数据 ---> 当key存在时，返回 null
+        removeItem(key)     删除数据
+        clear()             清空数据
+      
+      特点：
+        浏览器关闭后，sessionStorage 中的数据消失
+
+      注意区分：
+        此处将的 浏览器 中的 localStorag 和 sessionStorage
+        和服务器端的 session 、浏览器端的 cookie 不一样
+    */
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,13 @@
 <template>
   <ul class="todo-main">
     <!-- props 组件间传参数，直接传对象 -->
-    <Item v-for="task in taskList" :key="task.id" :task="task" />
+    <Item
+      v-for="task in taskList"
+      :key="task.id"
+      :task="task"
+      :changeChecked="changeChecked"
+      :deleteTask="deleteTask"
+    />
   </ul>
 </template>
 
@@ -13,7 +19,7 @@ export default {
   components: {
     Item,
   },
-  props: ["taskList"],
+  props: ["taskList", "changeChecked", "deleteTask"],
 };
 </script>
 

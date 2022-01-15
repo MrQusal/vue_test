@@ -19,20 +19,19 @@
 export default {
   name: "Item",
   // 声明接收 task 对象
-  props: ["task"],
+  props: ["task", "changeChecked", "deleteTask"],
   methods: {
     // 处理勾选
     handleChange(taskId) {
       console.log(taskId);
-      // 触发总线上的 changeChecked 事件
-      this.$bus.$emit("changeChecked", taskId);
+      this.changeChecked(taskId);
     },
     // 处理删除
     deleteTaskSub(task) {
       console.log(task.id);
       const confirmRes = confirm(`是否删除任务${task.title}`);
       if (confirmRes) {
-        this.$bus.$emit("deleteTask", task.id);
+        this.deleteTask(task.id);
       } else {
         alert("取消删除成功");
         return;

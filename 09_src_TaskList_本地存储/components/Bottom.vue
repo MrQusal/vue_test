@@ -1,6 +1,14 @@
 <template>
   <div class="todo-footer" v-if="total">
     <label>
+      <!-- 方法一 -->
+      <!-- <input
+        type="checkbox"
+        @change="handleBottomCheckSub"
+        :checked="checked"
+      /> -->
+
+      <!-- 方法二 -->
       <input type="checkbox" v-model="checked" />
     </label>
     <span>
@@ -15,13 +23,13 @@
 <script>
 export default {
   name: "Bottom",
-  props: ["competed", "total"],
+  props: ["competed", "total", "clearCompetedTasks", "handleBottomCheck"],
   methods: {
     // 清除所有的已完成任务
     clearCompetedTasksSub() {
       const confirmRes = confirm("是否清除已完成的任务");
       if (confirmRes) {
-        this.$emit("clearTask");
+        this.clearCompetedTasks();
       } else {
         alert("取消删除");
         return;
@@ -30,16 +38,22 @@ export default {
     // 处理底部的勾选逻辑
     handleBottomCheckSub(event) {
       console.log(event.target.checked);
-      this.$emit("handleCheck", event.target.checked);
+      this.handleBottomCheck(event.target.checked);
     },
   },
   computed: {
+    // 方法一
+    /* checked() {
+      return this.competed === this.total && this.total > 0;
+    }, */
+
+    // 方法二
     checked: {
       get() {
         return this.competed === this.total && this.total > 0;
       },
       set(value) {
-        this.$emit("handleCheck", value);
+        this.handleBottomCheck(value);
       },
     },
   },

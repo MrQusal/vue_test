@@ -2,15 +2,17 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <!-- 修改为组件自定义事件 来实现 子向父传数据 -->
-        <Top v-on:add="addTask" />
-        <List :taskList="taskList" />
+        <Top :addTask="addTask" />
+        <List
+          :taskList="taskList"
+          :changeChecked="changeChecked"
+          :deleteTask="deleteTask"
+        />
         <Bottom
           :competed="competed"
           :total="total"
-          @clearTask="clearCompetedTasks"
+          :clearCompetedTasks="clearCompetedTasks"
           :handleBottomCheck="handleBottomCheck"
-          ref="bottom"
         />
       </div>
     </div>
@@ -36,20 +38,6 @@ export default {
       // 初始化为 向 localStorage 读取最新的数据。为了防止读到 null 然后调用.length 属性报错。放一个空数组
       taskList: JSON.parse(localStorage.getItem("taskList")) || [],
     };
-  },
-
-  mounted() {
-    // 给 bottom 组件绑定 handleCheck 事件，事件的回调为 handleBottomCheck
-    this.$refs["bottom"].$on("handleCheck", this.handleBottomCheck);
-    // 在总线上绑定 changeChecked 和 deleteTask 事件
-    this.$bus.$on("changeChecked", this.changeChecked);
-    this.$bus.$on("deleteTask", this.deleteTask);
-  },
-
-  beforeDestroy() {
-    // 使用事件总线，要记得解绑事件
-    this.$bus.$off("changeChecked");
-    this.$bus.$off("deleteTask");
   },
 
   methods: {

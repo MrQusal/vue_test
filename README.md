@@ -176,7 +176,7 @@
 
 1. 一种组件间通信的方式，适用于：<strong style="color:red">子组件 ===> 父组件</strong>
 
-2. 使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件（<span style="color:red">事件的回调在A中</span>）。
+2. 使用场景：A是父组件，B是子组件，B想给A传数据，那么就要在A中给B绑定自定义事件（<span style="color:red">事件的回调在父组件中</span>）。
 
 3. 绑定自定义事件：
 
@@ -201,6 +201,7 @@
 6. 组件上也可以绑定原生DOM事件，需要使用```native```修饰符。
 
 7. 注意：通过```this.$refs.xxx.$on('atguigu',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>，<span style="color:red">要么用箭头函数</span>，否则this指向会出问题！
+8. <b>给谁绑定的事件，就在谁那触发</b>
 
 ## 全局事件总线（GlobalEventBus）
 

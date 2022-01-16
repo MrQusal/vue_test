@@ -273,7 +273,7 @@
 
 1. 作用：在插入、更新或移除 DOM元素时，在合适的时候给元素添加样式类名。
 
-2. 图示：<img src="https://img04.sogoucdn.com/app/a/100520146/5990c1dff7dc7a8fb3b34b4462bd0105" style="width:60%" />
+2. 图示：<img src="https://cn.vuejs.org/images/transition.png" style="width:70%" />
 
 3. 写法：
 
@@ -287,6 +287,7 @@
         1. v-leave：离开的起点
         2. v-leave-active：离开过程中
         3. v-leave-to：离开的终点
+      - 注意点：<b>使用动画，只需要 v-enter-active 和 v-leave-active 两个样式；使用过渡，需要其他四个样式</b>
 
    2. 使用```<transition>```包裹要过度的元素，并配置name属性：
 

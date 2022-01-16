@@ -1,39 +1,29 @@
 <template>
-  <!-- 
-    添加过渡效果 
-      方法一：在 item 组件中添加 transition
-  -->
-  <transition name="task" appear>
-    <li>
-      <label>
-        <!-- 使用插值语法 -->
-        <input
-          type="checkbox"
-          :checked="task.done"
-          @change="handleChange(task.id)"
-        />
-        <!-- 借助 v-model 双向数据绑定也能实现。但不建议这么做（props传入的数据不要修改） -->
-        <!-- <input type="checkbox" v-model="task.done" /> -->
-        <span v-show="!task.isEdit">{{ task.title }}</span>
-        <input
-          v-show="task.isEdit"
-          type="text"
-          :value="task.title"
-          @blur="EditTaskDone(task, $event)"
-          ref="inputId"
-        />
-      </label>
+  <li>
+    <label>
+      <!-- 使用插值语法 -->
+      <input
+        type="checkbox"
+        :checked="task.done"
+        @change="handleChange(task.id)"
+      />
+      <!-- 借助 v-model 双向数据绑定也能实现。但不建议这么做（props传入的数据不要修改） -->
+      <!-- <input type="checkbox" v-model="task.done" /> -->
+      <span v-show="!task.isEdit">{{ task.title }}</span>
+      <input
+        v-show="task.isEdit"
+        type="text"
+        :value="task.title"
+        @blur="EditTaskDone(task, $event)"
+        ref="inputId"
+      />
+    </label>
 
-      <button class="btn btn-danger" @click="deleteTaskSub(task)">删除</button>
-      <button
-        v-show="!task.isEdit"
-        class="btn btn-edit"
-        @click="EditTask(task)"
-      >
-        编辑
-      </button>
-    </li>
-  </transition>
+    <button class="btn btn-danger" @click="deleteTaskSub(task)">删除</button>
+    <button v-show="!task.isEdit" class="btn btn-edit" @click="EditTask(task)">
+      编辑
+    </button>
+  </li>
 </template>
 
 <script>
@@ -146,23 +136,5 @@ li:hover {
 /* 并且显示按钮 */
 li:hover button {
   display: block;
-}
-
-/* 添加过渡的样式 */
-.task-enter-active {
-  animation: dsiappear 0.4s linear;
-}
-
-.task-leave-active {
-  animation: dsiappear 0.4s linear reverse;
-}
-
-@keyframes dsiappear {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
 }
 </style>

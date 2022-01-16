@@ -1,13 +1,6 @@
 <template>
   <ul class="todo-main">
     <!-- props 组件间传参数，直接传对象 -->
-    <!-- 
-      添加过渡效果
-        方式二：在 list 组件中添加 transition-group
-       -->
-    <!-- <transition-group>
-      <Item v-for="task in taskList" :key="task.id" :task="task" />
-    </transition-group> -->
     <Item v-for="task in taskList" :key="task.id" :task="task" />
   </ul>
 </template>

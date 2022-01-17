@@ -12,7 +12,4 @@ new Vue({
   el: '#root',
   // 调用 render 将 app组件放入容器
   render: h => h(App),
-  beforeCreate() {
-    Vue.prototype.$bus = this;
-  }
 })

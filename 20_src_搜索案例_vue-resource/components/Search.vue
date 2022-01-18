@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   name: "Search",
@@ -35,7 +35,9 @@ export default {
         isLoading: true,
         errMsg: "",
       });
-      axios.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
+      // axios.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
+      // 使用 vue-resource 中提供的 $http，其他和 axios 类似  
+      this.$http.get(`https://api.github.com/search/users?q=${this.keyWord}`).then(
         (res) => {
           console.log("请求成功", res.data.items);
           // 将数据通过事件总线发送出去

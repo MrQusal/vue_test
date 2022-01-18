@@ -3,9 +3,13 @@
 import Vue from 'vue';
 // 2. 导入父组件
 import App from './App.vue'
+// 导入 vue-resource
+import vueResource from "vue-resource";
 // 关闭开发提示
 Vue.config.productionTip = false
 
+// 使用 vue-resource 插件
+Vue.use(vueResource);
 // 创建 Vue 实例
 new Vue({
   el: '#root',

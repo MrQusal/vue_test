@@ -4,7 +4,7 @@
     <h3>当前求和为 {{ sum }}</h3>
     <h4>放大 10 倍后的和为 {{ bigSum }}</h4>
     <h4>我是 {{ name }}，我的年纪是{{ age }}</h4>
-    <h4 style="color: red">Person 组件的的总人数为 {{ personList.length }}</h4>
+    <h4 style="color: red"> Person 组件的的总人数为 {{ personList.length }}</h4>
     <select v-model.number="num">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -28,20 +28,15 @@ export default {
     };
   },
   methods: {
-    ...mapMutations("counterAbout", {
-      increment: "INCREMENT",
-      decrement: "DECREMENT",
-    }),
-    ...mapActions("counterAbout", {
+    ...mapMutations({ increment: "INCREMENT", decrement: "DECREMENT" }),
+    ...mapActions({
       incrementOdd: "incrementOdd",
       incrementWait: "incrementWait",
     }),
   },
   computed: {
-    // 使用 mapXXX 时指定 counterAbout 对象
-    ...mapState("counterAbout", ["sum", "age", "name"]),
-    ...mapState("personAbout", ["personList"]),
-    ...mapGetters("counterAbout", ["bigSum"]),
+    ...mapState(["sum", "age", "name", "personList"]),
+    ...mapGetters(["bigSum"]),
   },
 };
 </script>

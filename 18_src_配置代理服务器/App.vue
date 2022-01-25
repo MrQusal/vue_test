@@ -14,6 +14,7 @@ export default {
   methods: {
     getStus() {
       // 2. 这里8080 是前台端口
+      // 去test_proxy_server 下通过 node server1.js 开启服务器
       axios.get("http://localhost:8080/api/students").then(
         (response) => {
           console.log("请求成功", response.data);
@@ -23,6 +24,7 @@ export default {
         }
       );
     },
+    // 去test_proxy_server 下通过 node server2.js 开启服务器
     getCars() {
       axios.get("http://localhost:8080/demo/cars").then(
         (response) => {

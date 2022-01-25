@@ -36,6 +36,7 @@ export default {
   methods: {
     getUserList(dataObj) {
       console.log("收到了数据", dataObj);
+      // info 对象 和 dataObj 对象展开（并集），键值重复取后者
       this.info = { ...this.info, ...dataObj };
     },
   },

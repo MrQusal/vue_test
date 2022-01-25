@@ -26,7 +26,7 @@
           <!-- 
             replace 属性
               在进行路由跳转时，默认时 push 模式（在栈中追加）
-              开启 replace，表示  替换（直接替换栈中的路由记录）
+              开启 replace，表示替换（直接替换栈中的路由记录）
            -->
           <router-link
             replace
@@ -58,7 +58,7 @@ export default {
     Banner,
   },
   mounted() {
-    // console.log(this);
+    console.log(this);
   },
 };
 </script>

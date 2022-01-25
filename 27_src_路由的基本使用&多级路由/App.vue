@@ -16,23 +16,10 @@
                 to 属性，指定跳转的路径（在 router 中配置的 path）
                 active-class 属性，指定激活路径时，标签的样式（此处为高亮）
           -->
-          <router-link
-            replace
-            class="list-group-item"
-            active-class="active"
-            to="/about"
+          <router-link class="list-group-item" active-class="active" to="/about"
             >About</router-link
           >
-          <!-- 
-            replace 属性
-              在进行路由跳转时，默认时 push 模式（在栈中追加）
-              开启 replace，表示  替换（直接替换栈中的路由记录）
-           -->
-          <router-link
-            replace
-            class="list-group-item"
-            active-class="active"
-            to="/home"
+          <router-link class="list-group-item" active-class="active" to="/home"
             >Home</router-link
           >
         </div>
@@ -58,7 +45,7 @@ export default {
     Banner,
   },
   mounted() {
-    // console.log(this);
+    console.log(this);
   },
 };
 </script>

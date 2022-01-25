@@ -289,7 +289,7 @@
         3. v-leave-to：离开的终点
       - 注意点：<b>使用动画，只需要 v-enter-active 和 v-leave-active 两个样式；使用过渡，需要其他四个样式</b>
 
-   2. 使用```<transition>```包裹要过度的元素，并配置name属性：
+   2. 使用```<transition>```包裹要过度的元素，并配置name属性：配置属性名后，相应的样式名为 ```[name属性值]-xxx-xx```
 
       ```vue
       <transition name="hello">
@@ -298,6 +298,8 @@
       ```
 
    3. 备注：若有多个元素需要过度，则需要使用：```<transition-group>```，且每个元素都要指定```key```值。
+
+   4. 若使用第三方提供的过渡/动画效果，只需要指定 enter-active-class 和 leave-active-class 样式即可
 
 ## vue脚手架配置代理
 
@@ -1066,6 +1068,6 @@ module.exports = {
 4. history模式：
    1. 地址干净，美观 。
    2. 兼容性和hash模式相比略差。
-   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
+   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。(nodejs中使用connect-history-api-fallback第三方库)
 	 
 	 
